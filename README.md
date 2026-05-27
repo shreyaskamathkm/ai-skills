@@ -27,12 +27,28 @@ A comprehensive framework designed to improve the reliability, simplicity, and e
 This repository provides optimized instructions for different AI environments:
 
 ### [Gemini CLI](GEMINI.md) (Recommended)
-*   **Install Skill**: This repository is structured as a Gemini CLI skill. To install it:
+This repository is structured as a Gemini CLI skill.
+
+*   **Global Installation**:
     ```bash
     gemini skills install https://github.com/shreyaskamathkm/ai-skills
     ```
-*   **Local Setup**: Place `GEMINI.md` in your project root for project-specific instructions.
-*   **Gemini Code Assist**: Copy `.gemini/styleguide.md` to your project root.
+*   **Local (Workspace) Installation**:
+    ```bash
+    gemini skills install . --scope workspace
+    ```
+*   **Removal**:
+    ```bash
+    gemini skills uninstall 12-rule-guidelines
+    ```
+*   **Testing**:
+    Verify the skill is installed and enabled:
+    ```bash
+    gemini skills list
+    ```
+    To use it in a session, ask the agent:
+    > "Activate 12-rule-guidelines" or 
+    > "/12-rule-guidelines"
 
 ### [Claude Code](CLAUDE.md)
 *   **Setup**: Place `CLAUDE.md` in your project root. Claude will create `MEMORY.md` on its first run.
