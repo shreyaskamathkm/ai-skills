@@ -1,0 +1,6 @@
+{
+  "name": "12-Rule AI Coding Guidelines",
+  "description": "Surgical, simple, and goal-driven development guidelines for AI agents.",
+  "version": "1.0.0",
+  "instructions": "../instructions.md"
+}

@@ -20,46 +20,53 @@ A comprehensive framework designed to improve the reliability, simplicity, and e
 11. **Match Conventions**: Consistency over individual taste.
 12. **Fail Loud**: Never ignore errors or bypass tests.
 
+## 🚀 Quick Start
+
+This repository is structured as an **Agent Skill**. Follow the instructions for your environment:
+
+### Gemini CLI
+1.  **Install**:
+    ```bash
+    gemini skills install https://github.com/shreyaskamathkm/ai-skills
+    # OR for local workspace:
+    gemini skills install . --scope workspace
+    ```
+2.  **Verify**: `gemini skills list`
+3.  **Usage**: "/12-rule-guidelines"
+4.  **Uninstall**: `gemini skills uninstall 12-rule-guidelines`
+
+### Claude Code
+1.  **Install**:
+    ```bash
+    # Global
+    mkdir -p ~/.claude/skills/12-rule-guidelines
+    cp SKILL.md ~/.claude/skills/12-rule-guidelines/SKILL.md
+    
+    # OR Project scope
+    mkdir -p .claude/skills/12-rule-guidelines
+    cp SKILL.md .claude/skills/12-rule-guidelines/SKILL.md
+    ```
+2.  **Verify**: Type `/` and look for `12-rule-guidelines` or ask "What skills do you have?"
+3.  **Usage**: "/12-rule-guidelines"
+4.  **Uninstall**: `rm -rf ~/.claude/skills/12-rule-guidelines`
+
 ---
 
 ## 🛠 Model Integration
 
 This repository provides optimized instructions for different AI environments:
 
-### [Gemini CLI](GEMINI.md) (Recommended)
-This repository is structured as a Gemini CLI skill.
-
-*   **Global Installation**:
-    ```bash
-    gemini skills install https://github.com/shreyaskamathkm/ai-skills
-    ```
-*   **Local (Workspace) Installation**:
-    ```bash
-    gemini skills install . --scope workspace
-    ```
-*   **Removal**:
-    ```bash
-    gemini skills uninstall 12-rule-guidelines
-    ```
-*   **Testing**:
-    Verify the skill is installed and enabled:
-    ```bash
-    gemini skills list
-    ```
-    To use it in a session, ask the agent:
-    > "Activate 12-rule-guidelines" or 
-    > "/12-rule-guidelines"
+### [Gemini CLI](GEMINI.md)
+Detailed configuration and persistence rules for Gemini.
 
 ### [Claude Code](CLAUDE.md)
-*   **Setup**: Place `CLAUDE.md` in your project root. Claude will create `MEMORY.md` on its first run.
-*   **Skill Integration**: Compatible with `skills.sh` for agentic loops.
+Guidelines and templates optimized for Claude's memory management.
 
 ### [Cursor](CURSOR.md)
-*   **Setup**: The `.cursorrules` and `.cursor/rules/coding-rules.mdc` files apply these rules globally.
+Setup for `.cursorrules` and `.cursor/rules/coding-rules.mdc`.
 
 ### [ChatGPT](CHATGPT.md)
-*   **ChatGPT Projects**: Upload `CHATGPT.md` to your project.
-*   **Custom Instructions**: Copy the rules from `CHATGPT.md` into your personalization settings.
+Instructions for ChatGPT Projects and Custom Instructions.
 
 ---
 
