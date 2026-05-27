@@ -1,0 +1,47 @@
+# .aiexclude — Context Filter for AI Agents
+# Use this file to prevent AI models from reading unnecessary directories,
+# saving token budget and preventing context bloat.
+
+# Dependencies
+node_modules/
+bower_components/
+vendor/
+
+# Build Outputs
+dist/
+build/
+out/
+.next/
+.serverless/
+bin/
+obj/
+
+# Logs and Snapshots
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.npm/
+
+# Environment and Secrets
+.env
+.env.*
+!.env.example
+.venv/
+env/
+venv/
+ENV/
+
+# OS / IDE Files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Project Specific (Add large data or binary folders here)
+assets/
+public/
+docs/
