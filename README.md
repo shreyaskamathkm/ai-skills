@@ -3,7 +3,7 @@
 ![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)
 ![AI-Powered](https://img.shields.io/badge/AI-Powered-blue.svg)
 
-A comprehensive framework designed to improve the reliability, simplicity, and efficiency of AI coding agents (Gemini, Claude, ChatGPT, Cursor). Inspired by Andrej Karpathy's observations on LLM pitfalls, these guidelines force AI models to prioritize caution, communication, and verifiable outcomes.
+A comprehensive framework designed to improve the reliability, simplicity, and efficiency of AI coding agents (Gemini, Claude, ChatGPT). Inspired by Andrej Karpathy's observations on LLM pitfalls, these guidelines force AI models to prioritize caution, communication, and verifiable outcomes.
 
 ## 🚀 The 12 Rules Summary
 
@@ -84,10 +84,6 @@ curl -L https://raw.githubusercontent.com/shreyaskamathkm/ai-skills/main/instruc
 
 This repository provides optimized instructions for different AI environments. All platforms now point to [instructions.md](./instructions.md) as the single source of truth:
 
-- **[Gemini CLI](GEMINI.md)**: Configuration and persistence rules.
-- **[Claude Code](CLAUDE.md)**: Optimized for Claude's memory management.
-- **[Cursor](CURSOR.md)**: Setup for `.cursorrules`.
-- **[ChatGPT](CHATGPT.md)**: Project and Custom Instructions.
 - **[Claude Plugin](.claude-plugin/plugin.json)**: Native manifest for the Claude ecosystem.
 
 ---
