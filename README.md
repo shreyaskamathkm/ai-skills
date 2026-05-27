@@ -29,9 +29,8 @@ This repository provides optimized instructions for different AI environments:
 ### [Gemini CLI](GEMINI.md) (Recommended)
 *   **Install Skill**: This repository is structured as a Gemini CLI skill. To install it:
     ```bash
-    gemini skills install https://github.com/your-username/ai-skills
+    gemini skills install https://github.com/shreyaskamathkm/ai-skills
     ```
-    *(Note: Replace `your-username` with your actual GitHub username)*
 *   **Local Setup**: Place `GEMINI.md` in your project root for project-specific instructions.
 *   **Gemini Code Assist**: Copy `.gemini/styleguide.md` to your project root.
 
