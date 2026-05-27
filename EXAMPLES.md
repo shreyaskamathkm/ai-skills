@@ -1,6 +1,6 @@
 # EXAMPLES.md — Rule Application Guide (Python)
 
-This document provides real-world code examples demonstrating the core principles of the 12-Rule framework. Each example shows what AI agents commonly do wrong and how to fix it to ensure surgical, simple, and goal-driven results.
+This document provides real-world code examples demonstrating the core principles of the 12-Rule framework defined in [instructions.md](./instructions.md). Each example shows what AI agents commonly do wrong and how to fix it to ensure surgical, simple, and goal-driven results.
 
 ---
 

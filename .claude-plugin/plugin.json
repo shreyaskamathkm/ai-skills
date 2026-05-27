@@ -1,6 +1,6 @@
 {
   "name": "12-Rule-AI-Coding-Guidelines",
-  "description": "A comprehensive framework designed to improve the reliability, simplicity, and efficiency of AI coding agents (Gemini, Claude, ChatGPT, Cursor). Inspired by Andrej Karpathy's observations on LLM pitfalls, these guidelines force AI models to prioritize caution, communication, and verifiable outcomes.",
+  "description": "A comprehensive framework designed to improve the reliability, simplicity, and efficiency of AI coding agents (Gemini, Claude, ChatGPT). Inspired by Andrej Karpathy's observations on LLM pitfalls, these guidelines force AI models to prioritize caution, communication, and verifiable outcomes.",
   "version": "1.0.0",
   "instructions": "../instructions.md"
 }

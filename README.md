@@ -24,7 +24,8 @@ A comprehensive framework designed to improve the reliability, simplicity, and e
 
 This repository is structured as an **Agent Skill**. Follow the instructions for your environment:
 
-### Gemini CLI
+### Gemini
+## Option A: Gemini CLI (recommended)
 1.  **Install**:
     ```bash
     gemini skills install https://github.com/shreyaskamathkm/ai-skills
@@ -35,22 +36,49 @@ This repository is structured as an **Agent Skill**. Follow the instructions for
 3.  **Usage**: "/12-rule-guidelines"
 4.  **Uninstall**: `gemini skills uninstall 12-rule-guidelines`
 
-### Claude Code
-1.  **Install**:
-    ```bash
-    # Global
-    mkdir -p ~/.claude/skills/12-rule-guidelines
-    cp SKILL.md ~/.claude/skills/12-rule-guidelines/SKILL.md
-    
-    # OR Project scope
-    mkdir -p .claude/skills/12-rule-guidelines
-    cp SKILL.md .claude/skills/12-rule-guidelines/SKILL.md
-    ```
-2.  **Verify**: Type `/` and look for `12-rule-guidelines` or ask "What skills do you have?"
-3.  **Usage**: "/12-rule-guidelines"
-4.  **Uninstall**: `rm -rf ~/.claude/skills/12-rule-guidelines`
 
+## Option B: GEMINI.md (per-project)
+
+New project:
+
+```bash
+curl -L https://raw.githubusercontent.com/shreyaskamathkm/ai-skills/main/instructions.md -o GEMINI.md
+```
+
+Existing project (append):
+
+```bash
+echo "" >> GEMINI.md
+curl -L https://raw.githubusercontent.com/shreyaskamathkm/ai-skills/main/instructions.md >> GEMINI.md
+```
+
+### Claude Code
+## Option A: Claude Code Plugin (recommended)
+
+From within Claude Code, first add the marketplace:
+
+/plugin marketplace install shreyaskamathkm/ai-skills 
+Then install the plugin:
+
+/plugin install 12-rule-guidelines 
+This installs the guidelines as a Claude Code plugin, making the skill available across all your projects.
 ---
+
+## Option B: CLAUDE.md (per-project)
+
+New project:
+
+```bash
+curl -L https://raw.githubusercontent.com/shreyaskamathkm/ai-skills/main/instructions.md -o CLAUDE.md
+```
+
+Existing project (append):
+
+```bash
+echo "" >> CLAUDE.md
+curl -L https://raw.githubusercontent.com/shreyaskamathkm/ai-skills/main/instructions.md >> CLAUDE.md
+```
+
 
 ## 🛠 Model Integration
 
