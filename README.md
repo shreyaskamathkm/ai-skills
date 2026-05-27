@@ -54,19 +54,13 @@ This repository is structured as an **Agent Skill**. Follow the instructions for
 
 ## 🛠 Model Integration
 
-This repository provides optimized instructions for different AI environments:
+This repository provides optimized instructions for different AI environments. All platforms now point to [instructions.md](./instructions.md) as the single source of truth:
 
-### [Gemini CLI](GEMINI.md)
-Detailed configuration and persistence rules for Gemini.
-
-### [Claude Code](CLAUDE.md)
-Guidelines and templates optimized for Claude's memory management.
-
-### [Cursor](CURSOR.md)
-Setup for `.cursorrules` and `.cursor/rules/coding-rules.mdc`.
-
-### [ChatGPT](CHATGPT.md)
-Instructions for ChatGPT Projects and Custom Instructions.
+- **[Gemini CLI](GEMINI.md)**: Configuration and persistence rules.
+- **[Claude Code](CLAUDE.md)**: Optimized for Claude's memory management.
+- **[Cursor](CURSOR.md)**: Setup for `.cursorrules`.
+- **[ChatGPT](CHATGPT.md)**: Project and Custom Instructions.
+- **[Claude Plugin](.claude-plugin/plugin.json)**: Native manifest for the Claude ecosystem.
 
 ---
 
