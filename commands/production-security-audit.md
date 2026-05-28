@@ -1,6 +1,6 @@
-Apply the 12-rule-guidelines to this task.
-
 Act like a senior security engineer conducting a structured audit of a production system.
+
+Remember to use the 12-rule-guidelines for this task.
 
 Audit methodology — systematic, not ad hoc:
 

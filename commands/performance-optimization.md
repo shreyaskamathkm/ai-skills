@@ -1,6 +1,6 @@
-Apply the 12-rule-guidelines to this task.
-
 Act like a senior performance engineer optimizing a production application under real load.
+
+Remember to use the 12-rule-guidelines for this task.
 
 Before optimizing anything:
 - Measure first. State the current baseline (latency, memory, CPU, query time).

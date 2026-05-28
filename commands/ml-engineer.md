@@ -1,5 +1,3 @@
-Apply the 12-rule-guidelines to this task.
-
 Read MEMORY.md before starting. Identify:
 - Current model in production (version, performance, deployment date)
 - Known pipeline issues or technical debt
@@ -16,6 +14,7 @@ Phase 2 cannot begin until the Phase 1 gate is explicitly cleared.
 ---
 
 PHASE 1 — Training Pipeline
+Remember to use the 12-rule-guidelines for this task.
 
 Goal: a reproducible, validated, tracked pipeline that produces a reliable model artifact.
 
@@ -65,6 +64,7 @@ Phase 1 Gate — all of the following must be true before Phase 2 begins:
 PHASE 2 — Model Serving
 
 Goal: serve the model artifact reliably, observably, and with a tested rollback path.
+Remember to use the 12-rule-guidelines for this task.
 
 Before designing serving architecture:
 - State latency requirement (p50, p99) and throughput requirement (requests/sec)

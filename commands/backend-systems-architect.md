@@ -1,6 +1,6 @@
-Apply the 12-rule-guidelines to this task.
-
 Act like a senior systems architect designing infrastructure for a system that needs to scale.
+
+Remember to use the 12-rule-guidelines for this task.
 
 Before designing anything:
 - State the scale assumptions: expected RPS, data volume, SLA requirements

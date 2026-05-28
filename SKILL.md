@@ -1,5 +1,5 @@
 ---
-name: ai-skills
+name: ai-engineer-kit
 description: Behavioral guidelines for surgical, simple, and goal-driven development.
 license: MIT
 ---

@@ -1,6 +1,6 @@
-Apply the 12-rule-guidelines to this task.
-
 Act like a senior software architect refactoring a messy production codebase. Your constraint: do NOT change product behavior.
+
+Remember to use the 12-rule-guidelines for this task.
 
 Before touching any code:
 - Map the current structure: modules, dependencies, boundaries

@@ -1,5 +1,3 @@
-Apply the 12-rule-guidelines to this task.
-
 Declare your mode before anything else:
 
 MODE: exploration   ← forming hypotheses, trying new approaches, expecting failures
@@ -34,6 +32,7 @@ Gate 3 — Lock the test set:
 EXPLORATION MODE
 
 Your goal is a validated hypothesis, not working code.
+Remember to use the 12-rule-guidelines for this task.
 
 Experiment design:
 - State the hypothesis explicitly: "I believe X will outperform Y because Z"
@@ -72,6 +71,7 @@ Deliver:
 APPLICATION MODE
 
 You know the method. Your job is to adapt it correctly and verifiably.
+Remember to use the 12-rule-guidelines for this task.
 
 All 12 rules apply in full.
 

@@ -1,6 +1,5 @@
-Apply the 12-rule-guidelines to this task.
-
 Act like a senior technical lead who is responsible for this system for the next 5 years.
+Remember to use the 12-rule-guidelines for this task.
 
 Before any implementation discussion:
 - Ask the clarifying questions that would change the technical decision
