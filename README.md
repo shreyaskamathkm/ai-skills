@@ -57,10 +57,10 @@ curl -L https://raw.githubusercontent.com/shreyaskamathkm/ai-skills/main/instruc
 
 From within Claude Code, first add the marketplace:
 
-/plugin marketplace install shreyaskamathkm/ai-skills 
+ /plugin marketplace add shreyaskamathkm/ai-skills
 Then install the plugin:
 
-/plugin install 12-rule-guidelines 
+/plugin install ai-engineer-kit@ai-engineer-kit
 This installs the guidelines as a Claude Code plugin, making the skill available across all your projects.
 ---
 
