@@ -1,0 +1,88 @@
+name: Pin README links to commit hash
+
+on:
+  push:
+    branches: [main]
+    # Only run when content files change, not when this workflow itself
+    # updates the README (that push is made with [skip ci])
+    paths-ignore:
+      - ".github/workflows/**"
+
+permissions:
+  contents: write  # needed to push the updated README back
+
+jobs:
+  pin-hashes:
+    runs-on: ubuntu-latest
+
+    steps:
+      # ── 1. Checkout ──────────────────────────────────────────────────────────
+      # Pinned to full SHA; update periodically via Dependabot or manually.
+      - name: Checkout repository
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683  # v4.2.2
+        with:
+          # Fetch the full history so `git log` works correctly
+          fetch-depth: 0
+
+      # ── 2. Capture the SHA that just landed on main ───────────────────────────
+      - name: Get current commit SHA
+        id: sha
+        run: echo "hash=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+
+      # ── 3. Replace all /blob/main/ and /tree/main/ links ─────────────────────
+      #
+      # Covers patterns like:
+      #   https://github.com/shreyaskamathkm/ai-skills/blob/main/GEMINI.md
+      #   https://github.com/shreyaskamathkm/ai-skills/tree/main/.cursor
+      #
+      # The sed replaces any previously-pinned 40-char SHA *or* the word "main"
+      # so re-running is idempotent.
+      - name: Pin /blob/main/ and /tree/main/ links in Markdown files
+        env:
+          HASH: ${{ steps.sha.outputs.hash }}
+          REPO: shreyaskamathkm/ai-skills
+        run: |
+          PATTERN="github\.com/${REPO}/(blob|tree)/([0-9a-f]{40}|main)/"
+          REPLACE="github.com/${REPO}/\1/${HASH}/"
+
+          for file in README.md instructions.md; do
+            [ -f "$file" ] || continue
+            perl -i -pe "s|${PATTERN}|${REPLACE}|g" "$file"
+            echo "Processed $file"
+          done
+
+      # ── 4. Pin raw.githubusercontent.com links ────────────────────────────────
+      #
+      # Covers patterns like:
+      #   https://raw.githubusercontent.com/shreyaskamathkm/ai-skills/main/instructions.md
+      #
+      # These appear both as plain links AND inside curl commands in code blocks.
+      - name: Pin raw.githubusercontent.com links in Markdown files
+        env:
+          HASH: ${{ steps.sha.outputs.hash }}
+          REPO: shreyaskamathkm/ai-skills
+        run: |
+          PATTERN="raw\.githubusercontent\.com/${REPO}/([0-9a-f]{40}|main)/"
+          REPLACE="raw.githubusercontent.com/${REPO}/${HASH}/"
+
+          for file in README.md instructions.md; do
+            [ -f "$file" ] || continue
+            perl -i -pe "s|${PATTERN}|${REPLACE}|g" "$file"
+            echo "Processed $file"
+          done
+
+      # ── 5. Commit and push if anything changed ───────────────────────────────
+      #
+      # [skip ci] prevents this commit from re-triggering the workflow.
+      - name: Commit pinned links
+        env:
+          HASH: ${{ steps.sha.outputs.hash }}
+        run: |
+          git config user.name  "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git diff --quiet && echo "No changes to commit." && exit 0
+
+          git add README.md instructions.md
+          git commit -m "chore: pin README links to ${HASH:0:7} [skip ci]"
+          git push
