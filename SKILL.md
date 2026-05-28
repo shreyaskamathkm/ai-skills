@@ -1,5 +1,5 @@
 ---
-name: 12-rule-guidelines
+name: ai-skills
 description: Behavioral guidelines for surgical, simple, and goal-driven development.
 license: MIT
 ---
