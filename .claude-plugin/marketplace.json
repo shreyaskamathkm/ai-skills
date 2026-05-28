@@ -1,6 +1,6 @@
 {
-  "name": "12-rule-guidelines",
-  "id": "12-rule-guidelines",
+  "name": "ai-skills",
+  "id": "ai-skills",
   "owner": {
     "name": "shreyaskamathkm"
   },
@@ -10,7 +10,7 @@
   },
   "plugins": [
     {
-      "name": "12-rule-guidelines",
+      "name": "ai-skills",
       "source": "./",
       "description": "Behavioral guidelines for surgical, simple, and goal-driven development: Think Before Coding, Simplicity First, Surgical Changes, Goal-Driven Execution, and more.",
       "version": "1.0.0",
