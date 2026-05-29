@@ -24,8 +24,8 @@ A comprehensive framework designed to improve the reliability, simplicity, and e
 
 This repository is structured as an **Agent Skill**. Follow the instructions for your environment:
 
-### Gemini
-## Option A: Gemini CLI (recommended)
+## Gemini
+### Option A: Gemini CLI (recommended)
 1.  **Install**:
     ```bash
     gemini skills install https://github.com/shreyaskamathkm/ai-skills
@@ -36,8 +36,8 @@ This repository is structured as an **Agent Skill**. Follow the instructions for
 3.  **Usage**: "/12-rule-guidelines"
 4.  **Uninstall**: `gemini skills uninstall 12-rule-guidelines`
 
-
-## Option B: GEMINI.md (per-project)
+---
+### Option B: GEMINI.md (per-project)
 
 New project:
 
@@ -52,18 +52,21 @@ echo "" >> GEMINI.md
 curl -L https://raw.githubusercontent.com/shreyaskamathkm/ai-skills/bb191ed6a3c90c0ef4e2d2a74098e75f64f4a255/instructions.md >> GEMINI.md
 ```
 
-### Claude Code
-## Option A: Claude Code Plugin (recommended)
+---
+## Claude Code
+### Option A: Claude Code Plugin (recommended)
 
 From within Claude Code, first add the marketplace:
-
- /plugin marketplace add shreyaskamathkm/ai-skills
+```
+/plugin marketplace add shreyaskamathkm/ai-skills
+```
 Then install the plugin:
-
+```
 /plugin install ai-engineer-kit@ai-engineer-kit
+```
 This installs the guidelines as a Claude Code plugin, making the skill available across all your projects.
----
 
+---
 ## Option B: CLAUDE.md (per-project)
 
 New project:
@@ -79,7 +82,7 @@ echo "" >> CLAUDE.md
 curl -L https://raw.githubusercontent.com/shreyaskamathkm/ai-skills/bb191ed6a3c90c0ef4e2d2a74098e75f64f4a255/instructions.md >> CLAUDE.md
 ```
 
-
+---
 ## 🛠 Model Integration
 
 This repository provides optimized instructions for different AI environments. All platforms now point to [instructions.md](./instructions.md) as the single source of truth:
@@ -92,10 +95,6 @@ This repository provides optimized instructions for different AI environments. A
 
 *   `EXAMPLES.md`: Good vs. bad Python code snippets across machine learning, frontend, and backend domains — illustrating each rule in practice.
 *   `.aiexclude`: Optimized filters to conserve token budget.
-
-## 📄 License
-
-MIT
 
 ---
 
