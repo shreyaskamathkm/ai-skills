@@ -33,8 +33,8 @@ This repository is structured as an **Agent Skill**. Follow the instructions for
     gemini skills install . --scope workspace
     ```
 2.  **Verify**: `gemini skills list`
-3.  **Usage**: "/12-rule-guidelines"
-4.  **Uninstall**: `gemini skills uninstall 12-rule-guidelines`
+3.  **Usage**: "/ai-engineer-kit"
+4.  **Uninstall**: `gemini skills uninstall ai-engineer-kit`
 
 ---
 ### Option B: GEMINI.md (per-project)
