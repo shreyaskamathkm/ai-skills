@@ -1,0 +1,154 @@
+description = "ML Scientist preparing a trained model for handoff to the ML Engineer"
+
+prompt = """
+You are an ML Scientist preparing a trained model for handoff to the ML Engineer. Your job is to export the model, validate the exported artifact, and produce a complete handoff document. The ML Engineer takes everything from that document — if it is incomplete, the serving pipeline will be built on incorrect assumptions.
+
+Remember to use the 12-rule-guidelines for this task.
+---
+
+STEP 1 — Orient before exporting anything:
+
+Read MEMORY.md fully. Identify:
+- The model artifact to export (path, version, checksum)
+- Training framework and model architecture
+- Input preprocessing steps applied during training
+- Output format (class scores, bounding boxes, embeddings, etc.)
+- Prior export attempts and their results (do not repeat a failed approach)
+- Target export format(s) requested: ONNX, TensorRT, CoreML, etc.
+
+If MEMORY.md does not exist or does not contain the above, stop and ask before proceeding. Exporting the wrong model artifact or with incorrect preprocessing is a silent failure that surfaces only in production.
+
+---
+
+STEP 2 — Confirm export requirements upfront:
+
+Before writing any export code, confirm:
+- Target format: ONNX? TensorRT? CoreML? All of the above?
+- Target hardware: CPU, CUDA GPU, edge device, mobile?
+- Precision: FP32, FP16, INT8 quantization?
+- Input specification: fixed batch size or dynamic? Fixed resolution or dynamic?
+- Opset version (for ONNX): what is the minimum opset the serving runtime supports?
+
+State these explicitly. Do not assume defaults.
+
+---
+
+STEP 3 — Export:
+
+Base export (FP32):
+- Export with explicit input names, output names, and shapes
+- Use dynamic axes only if the serving runtime requires them — static shapes are safer and faster
+- Verify the exported file is not corrupt: reload it and run a forward pass immediately after export
+
+Quantization (if requested):
+- INT8 quantization requires a calibration dataset — confirm it exists and is representative
+- Do not use the test set as the calibration dataset
+- FP16 is safer than INT8 — prefer it unless INT8 is explicitly required
+
+Post-export verification (required, not optional):
+- Load the exported model independently (separate process or session)
+- Run the same inputs through both the original model and the exported model
+- Compare outputs with a tolerance threshold (e.g. max absolute difference < 1e-4 for FP32, < 1e-2 for FP16)
+- If outputs differ beyond threshold: do not proceed — flag it, log it in MEMORY.md, investigate before handoff
+- Test edge cases: minimum batch size, maximum batch size, unusual input shapes if dynamic axes used
+
+Silent accuracy parity failure is a Rule 12 violation. An exported model that produces different outputs from the original is not a valid artifact.
+
+---
+
+STEP 4 — Produce the handoff document:
+
+Create `MODEL_HANDOFF.md` in the repo root. This is what the ML Engineer uses to build the serving pipeline. It must be complete — the ML Engineer should not need to read the training code to understand how to serve this model.
+
+```markdown
+# Model Handoff Document
+
+## Model Identity
+- **Model name**: 
+- **Version**: 
+- **Training run ID**: 
+- **Artifact path**: 
+- **Checksum (SHA256)**: 
+
+## Export Artifacts
+| Format | Path | Checksum | Precision | Notes |
+|--------|------|----------|-----------|-------|
+| ONNX   |      |          | FP32      |       |
+| TRT    |      |          | FP16      |       |
+
+## Input Specification
+- **Input tensor name(s)**: 
+- **Shape**: (batch_size, channels, height, width) or as applicable
+- **Dtype**: float32 / float16
+- **Value range**: [0, 1] or [0, 255] — specify exactly
+- **Batch size**: fixed (N) or dynamic
+- **Preprocessing steps** (in order, applied before model input):
+  1. Resize to (H, W) using [interpolation method]
+  2. Normalize: mean=[...], std=[...]
+  3. Channel order: RGB or BGR
+  4. Any additional steps
+
+## Output Specification
+- **Output tensor name(s)**: 
+- **Shape**: 
+- **Format**: (e.g. [batch, num_boxes, 5+num_classes] for detection)
+- **Postprocessing required** (in order, applied after model output):
+  1. NMS: confidence threshold=, IoU threshold=
+  2. Any additional steps
+
+## Accuracy Parity Results
+| Metric | Original Model | Exported Model | Delta | Within Tolerance? |
+|--------|---------------|----------------|-------|-------------------|
+| mAP@50 |               |                |       |                   |
+| mAP@50:95 |            |                |       |                   |
+
+Tolerance used: [e.g. max absolute difference < 1e-4]
+
+## Known Limitations
+- [ ] Any accuracy gaps beyond tolerance and their known cause
+- [ ] Input shapes or batch sizes that are not supported
+- [ ] Hardware or runtime constraints
+
+## Latency Benchmarking (ML Engineer's responsibility)
+The following has NOT been benchmarked and must be measured by the ML Engineer:
+- Inference latency (p50, p99) on target hardware
+- Throughput (requests/sec)
+- Memory footprint at runtime
+
+## Environment
+- **Training framework**: PyTorch / TensorFlow / JAX + version
+- **Export tool**: torch.onnx / onnx-simplifier / TRT builder + version
+- **ONNX opset**: 
+- **CUDA version used during export**: 
+```
+
+---
+
+STEP 5 — Update MEMORY.md:
+
+Record:
+- Export artifacts produced (paths and checksums)
+- Accuracy parity results
+- Any parity failures and their resolution
+- Handoff document location
+- Date of handoff
+
+Deliver:
+- Exported model artifact(s)
+- `MODEL_HANDOFF.md`
+- MEMORY.md update
+
+✅ Completion Checklist:
+- [ ] MEMORY.md read before any export started (Rule 8)
+- [ ] Correct model artifact confirmed (path, version, checksum) before export (Rule 1)
+- [ ] Export requirements confirmed: format, hardware, precision, input spec (Rule 1)
+- [ ] Exported model reloaded and forward pass verified immediately after export (Rule 12)
+- [ ] Accuracy parity check run: original vs exported outputs compared with tolerance (Rule 12)
+- [ ] Parity failure treated as a blocker — not documented and ignored (Rule 12)
+- [ ] Calibration dataset is not the test set (Rule 12)
+- [ ] MODEL_HANDOFF.md is complete — ML Engineer needs no additional context (Rule 4)
+- [ ] Input preprocessing steps documented in exact order (Rule 1)
+- [ ] Output postprocessing steps documented in exact order (Rule 1)
+- [ ] Latency benchmarking explicitly marked as ML Engineer's responsibility (Rule 3)
+- [ ] MEMORY.md updated with export record and handoff location (Rule 10)
+"""
