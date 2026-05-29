@@ -42,14 +42,14 @@ This repository is structured as an **Agent Skill**. Follow the instructions for
 New project:
 
 ```bash
-curl -L https://raw.githubusercontent.com/shreyaskamathkm/ai-skills/0ab918e6e66d540878aa40e21f63afbb76dfae8c/instructions.md -o GEMINI.md
+curl -L https://raw.githubusercontent.com/shreyaskamathkm/ai-skills/4f1e72ed3fdc45d3c99f7b6752058c37ae0beea5/instructions.md -o GEMINI.md
 ```
 
 Existing project (append):
 
 ```bash
 echo "" >> GEMINI.md
-curl -L https://raw.githubusercontent.com/shreyaskamathkm/ai-skills/0ab918e6e66d540878aa40e21f63afbb76dfae8c/instructions.md >> GEMINI.md
+curl -L https://raw.githubusercontent.com/shreyaskamathkm/ai-skills/4f1e72ed3fdc45d3c99f7b6752058c37ae0beea5/instructions.md >> GEMINI.md
 ```
 
 ---
@@ -72,14 +72,14 @@ This installs the guidelines as a Claude Code plugin, making the skill available
 New project:
 
 ```bash
-curl -L https://raw.githubusercontent.com/shreyaskamathkm/ai-skills/0ab918e6e66d540878aa40e21f63afbb76dfae8c/instructions.md -o CLAUDE.md
+curl -L https://raw.githubusercontent.com/shreyaskamathkm/ai-skills/4f1e72ed3fdc45d3c99f7b6752058c37ae0beea5/instructions.md -o CLAUDE.md
 ```
 
 Existing project (append):
 
 ```bash
 echo "" >> CLAUDE.md
-curl -L https://raw.githubusercontent.com/shreyaskamathkm/ai-skills/0ab918e6e66d540878aa40e21f63afbb76dfae8c/instructions.md >> CLAUDE.md
+curl -L https://raw.githubusercontent.com/shreyaskamathkm/ai-skills/4f1e72ed3fdc45d3c99f7b6752058c37ae0beea5/instructions.md >> CLAUDE.md
 ```
 
 ---
